@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AR Business Card</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- A-Frame & AR.js Libraries -->
+  <script src="https://aframe.io/releases/1.7.0/aframe.min.js"></script>
+  <script src="https://rawgit.com/jeromeetienne/ar.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
+  
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+
+<!-- AR Scene -->
+<a-scene embedded arjs="patternRatio:0.80">
+  
+  <!-- Marker with 3D Model -->
+  <a-marker type="pattern" url="assets/marker.patt">
+    
+    <!-- 3D Box -->
+    <a-box position="0 0 0" material="color: #4CC3D9;"></a-box>
+
+    <!-- Your Name -->
+    <a-text value="John Doe" 
+            position="-0.5 1 0"
+            scale="2 2 2"
+            color="#ffffff">
+    </a-text>
+
+    <!-- Clickable Button -->
+    <a-plane position="0 0 0" 
+             rotation="-90 0 0"
+             color="#FF6347" 
+             height="0.5" 
+             width="1"
+             onclick="window.open('https://yourwebsite.com', '_blank')">
+      <a-text value="Visit My Website" 
+              align="center" 
+              color="#ffffff"
+              position="0 0 0.1">
+      </a-text>
+    </a-plane>
+
+  </a-marker>
+  
+  <a-entity camera></a-entity>
+</a-scene>
+
+</body>
+</html>
